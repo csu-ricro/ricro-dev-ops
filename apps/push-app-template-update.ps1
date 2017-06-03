@@ -1,12 +1,12 @@
-$ProjectDirs = dir c:\dev\sandbox\apps | ?{$_.PSISContainer}
-$SourcePath = "c:\dev\sandbox\ricro-app-template\src\csu-app-template"
-$ProdPath = "c:\dev\sandbox\prod"
+$ProjectDirs = dir c:\dev\apps | ?{$_.PSISContainer}
+$SourcePath = "c:\dev\dev-ops\ricro-app-template"
+$ProdPath = "c:\dev\prod"
 
 $CopyLocation = "src\csu-app-template"
 $OriginalDir = $PWD.Path
 
 foreach ($app in $ProjectDirs) {
-    " "
+    "`n`n"
     Write-Host $app
     $LocalDir = $app.FullName
     Set-Location $app.FullName
@@ -21,7 +21,7 @@ foreach ($app in $ProjectDirs) {
 
     # Bundle parameters to copy command, add force if necessary
     $splat = @{
-        Path = "$SourcePath\*"
+        Path = "$SourcePath\$CopyLocation\*"
         Destination = ".\$CopyLocation\"
         Recurse = $True
     }
@@ -32,6 +32,7 @@ foreach ($app in $ProjectDirs) {
 
     # Run the copy command
     Copy-Item @splat
+    Copy-Item "$SourcePath\public\index.html" -Destination ".\public\" -Force
 
     # Finally, run our npm command
     npm run build
@@ -39,6 +40,8 @@ foreach ($app in $ProjectDirs) {
     # Compress production build
     Compress-Archive -Path "$LocalDir\build\*" -DestinationPath "$ProdPath\$app.zip" -Force
 
-    Write-Host $app finished rebuild -BackgroundColor DarkGreen
+    Write-Host "$app finished rebuild" -BackgroundColor DarkGreen
 }
 Set-Location $OriginalDir
+Write-Host "`n`nPress any key to close..."
+$x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
