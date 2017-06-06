@@ -2,6 +2,21 @@ $ProjectDirs = dir c:\dev\apps | ?{$_.PSISContainer}
 $SourcePath = "c:\dev\dev-ops\ricro-app-template"
 $ProdPath = "c:\dev\prod"
 
+$build = Read-Host -Prompt "Build? (y)"
+if($build.toLower() -eq "y" -or $force -eq ""){
+  $build = $True
+}else{
+  $build = $False
+}
+$force = Read-Host -Prompt "Force? (y)"
+if($force.toLower() -eq "y" -or $force -eq ""){
+  $force = $True
+}else{
+  $force = $False
+}
+
+Write-Host "$build $force"
+
 $CopyLocation = "src\csu-app-template"
 $OriginalDir = $PWD.Path
 
@@ -20,25 +35,44 @@ foreach ($app in $ProjectDirs) {
     New-Item "$LocalDir\$CopyLocation\" -type directory
 
     # Bundle parameters to copy command, add force if necessary
-    $splat = @{
+    $source = @{
         Path = "$SourcePath\$CopyLocation\*"
         Destination = ".\$CopyLocation\"
         Recurse = $True
     }
+    $index = @{
+        Path = "$SourcePath\public\index.html"
+        Destination = ".\public\"
+    }
+    $favicon = @{
+        Path = "$SourcePath\public\favicon.ico"
+        Destination = ".\public\"
+    }
+    $serviceWorker = @{
+        Path = "$SourcePath\src\registerServiceWorker.js"
+        Destination = ".\src\"
+    }
 
-    if($Force) {
-        $splat += @{Force = $True}
+    if($force) {
+        $source += @{Force = $True}
+        $index += @{Force = $True}
+        $favicon += @{Force = $True}
+        $serviceWorker += @{Force = $True}
     }
 
     # Run the copy command
-    Copy-Item @splat
-    Copy-Item "$SourcePath\public\index.html" -Destination ".\public\" -Force
+    Copy-Item @source
+    Copy-Item @index
+    Copy-Item @favicon
+    Copy-Item @serviceWorker
 
     # Finally, run our npm command
-    npm run build
+    if($build){
+      npm run build
+      # Compress production build
+      Compress-Archive -Path "$LocalDir\build\*" -DestinationPath "$ProdPath\$app.zip" -Force
+    }
 
-    # Compress production build
-    Compress-Archive -Path "$LocalDir\build\*" -DestinationPath "$ProdPath\$app.zip" -Force
 
     Write-Host "$app finished rebuild" -BackgroundColor DarkGreen
 }
