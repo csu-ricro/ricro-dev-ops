@@ -1,31 +1,62 @@
 if($args[0] -eq $Null){
-  $path = $(Resolve-Path -Path .)
+  $path = ".\"
 } else {
-  $path = $(Resolve-Path -Path $args[0])
+  $path = $args[0]
 }
 
+if(!$([bool](get-command -Name npm -ErrorAction SilentlyContinue))){
+  write-host "Command npm not found. Have you installed Node.js?" -ForegroundColor Red
+  exit 1
+}
+
+while(!$([bool](get-command -Name create-react-app -ErrorAction SilentlyContinue))){
+  write-host "create-react-app not found" -ForegroundColor Red
+  write-host "Would you like to install it globally? (Y/n) " -NoNewline -ForegroundColor Red
+  do {
+    $install = $(read-host).ToLower()
+  } while($install -ne "y" -and $install -ne "n")
+
+  if($install -eq "n"){
+    exit 1
+  }
+  write-host "`nInstalling create-react-app" -ForegroundColor Green
+  npm i create-react-app -g
+}
+
+if(!(test-path $path)){
+  new-item -ItemType Directory -Force -Path $path | out-null
+}
+
+$path = $(Resolve-Path -Path $path)
 $pwd = $(pwd)
 $buildRicroApp = ".\node_modules\ricro-app-template\src\demo\build-ricro-app"
 
+write-host "`nBuilding app" -NoNewline -ForegroundColor Green
 create-react-app $path
 if($lastExitCode -ne 0){
   exit 1
 }
 
+if(test-path $path\README.old.md){
+  Move-Item -LiteralPath $path\README.md -Destination $path\README.create-react-app.md
+  Move-Item -LiteralPath $path\README.old.md -Destination $path\README.md
+}
+
 cd $path
-Write-Host "`nInstalling ricro-app-template" -ForegroundColor Green
+write-host "`nInstalling ricro-app-template" -ForegroundColor Green
 npm i ricro-app-template --save
 
-Copy-Item .\src\registerServiceWorker.js .\registerServiceWorker.js
-Remove-Item .\src\*
+copy-item .\src\registerServiceWorker.js .\registerServiceWorker.js
+remove-item .\src\*
 
-Copy-Item $buildRicroApp\public\* .\public
-Copy-Item $buildRicroApp\src\* .\src
+copy-item $buildRicroApp\public\* .\public
+copy-item $buildRicroApp\src\* .\src
 
-Copy-Item .\registerServiceWorker.js .\src\registerServiceWorker.js
-Remove-Item .\registerServiceWorker.js
+copy-item .\registerServiceWorker.js .\src\registerServiceWorker.js
+remove-item .\registerServiceWorker.js
 
-Write-Host "`nStarting dev server" -ForegroundColor Green
+write-host "`nStarting dev environment" -NoNewline -ForegroundColor Green
 start npm start
+start npm test
 
 cd $pwd
