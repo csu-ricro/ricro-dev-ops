@@ -11,8 +11,11 @@ This script creates a basic app with the [`ricro-app-template`](https://github.c
 **Examples**
 
 `build-ricro-app`
+
 `build-ricro-app foo`
+
 `build-ricro-app .\apps\new-fancy-app`
+
 `cd .\apps\new-fancy-app; build-ricro-app`
 
 ### Execute from anywhere
