@@ -1,3 +1,6 @@
+$version="v1.1.0"
+write-host "build-ricro-app@$($version)" -NoNewline -ForegroundColor Green
+
 if($args[0] -eq $Null){
   $path = ".\"
 } else {
@@ -22,6 +25,9 @@ while(!$([bool](get-command -Name create-react-app -ErrorAction SilentlyContinue
   write-host "`nInstalling create-react-app" -ForegroundColor Green
   npm i create-react-app -g
 }
+
+write-host "Checking for create-react-app update" -NoNewline -ForegroundColor Green
+npm up create-react-app -g
 
 if(!(test-path $path)){
   new-item -ItemType Directory -Force -Path $path | out-null
