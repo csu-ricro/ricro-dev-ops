@@ -1,5 +1,5 @@
-$version="v1.1.0"
-write-host "build-ricro-app@$($version)" -NoNewline -ForegroundColor Green
+$version="v1.1.1"
+write-host "build-ricro-app@$($version)`n" -NoNewline -ForegroundColor Green
 
 if($args[0] -eq $Null){
   $path = ".\"
@@ -26,7 +26,7 @@ while(!$([bool](get-command -Name create-react-app -ErrorAction SilentlyContinue
   npm i create-react-app -g
 }
 
-write-host "Checking for create-react-app update" -NoNewline -ForegroundColor Green
+write-host "Checking for create-react-app update`n" -NoNewline -ForegroundColor Green
 npm up create-react-app -g
 
 if(!(test-path $path)){
@@ -37,7 +37,7 @@ $path = $(Resolve-Path -Path $path)
 $pwd = $(pwd)
 $buildRicroApp = ".\node_modules\ricro-app-template\src\demo\build-ricro-app"
 
-write-host "`nBuilding app" -NoNewline -ForegroundColor Green
+write-host "`nBuilding app`n" -NoNewline -ForegroundColor Green
 create-react-app $path
 if($lastExitCode -ne 0){
   exit 1
