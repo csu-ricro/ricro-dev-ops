@@ -1,11 +1,11 @@
-$version="v1.1.1"
+param (
+  [string]$path = "./",
+  [switch]$next
+)
+
+$version="v1.2.0"
 write-host "build-ricro-app@$($version)`n" -NoNewline -ForegroundColor Green
 
-if($args[0] -eq $Null){
-  $path = ".\"
-} else {
-  $path = $args[0]
-}
 
 if(!$([bool](get-command -Name npm -ErrorAction SilentlyContinue))){
   write-host "Command npm not found. Have you installed Node.js?" -ForegroundColor Red
@@ -49,8 +49,13 @@ if(test-path $path\README.old.md){
 }
 
 cd $path
-write-host "`nInstalling ricro-app-template" -ForegroundColor Green
-npm i ricro-app-template --save
+if($next){
+  write-host "`nInstalling ricro-app-template@next" -ForegroundColor Green
+  npm i ricro-app-template@next --save
+} else {
+  write-host "`nInstalling ricro-app-template" -ForegroundColor Green
+  npm i ricro-app-template --save
+}
 
 copy-item .\src\registerServiceWorker.js .\registerServiceWorker.js
 remove-item .\src\*
