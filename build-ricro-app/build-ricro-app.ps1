@@ -3,7 +3,7 @@ param (
   [switch]$next
 )
 
-$version="v1.2.0"
+$version="v1.2.1"
 write-host "build-ricro-app@$($version)`n" -NoNewline -ForegroundColor Green
 
 
@@ -58,10 +58,10 @@ if($next){
 }
 
 copy-item .\src\registerServiceWorker.js .\registerServiceWorker.js
-remove-item .\src\*
+remove-item .\src\* -recurse
 
-copy-item $buildRicroApp\public\* .\public
-copy-item $buildRicroApp\src\* .\src
+copy-item $buildRicroApp\public\* .\public -recurse
+copy-item $buildRicroApp\src\* .\src -recurse
 
 copy-item .\registerServiceWorker.js .\src\registerServiceWorker.js
 remove-item .\registerServiceWorker.js
