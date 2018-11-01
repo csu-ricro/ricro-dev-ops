@@ -1,4 +1,4 @@
-# Setting Up Docker Instance
+# Developing ricro-api with Docker Containers
 
 Clone this repo to ensure the file struture is correct.
 
@@ -21,7 +21,7 @@ docker run --name lamp -p "80:80" -p "3306:3306" -v ${PWD}/api:/app -v ${PWD}/my
 | `-v ${PWD}/mysql:/var/lib/mysql` | Preserves the data from MySQL in the Docker container. If not set data in the database will be lost on image stop, crash, or restart. |
 | `-v ${PWD}/api/test/mysql:/var/lib/mysql-files` | Links SQL scripts directory to the Docker container. This allows for running of the SQL scripts in either MySQL Workbench or via the Docker container's CLI. |
 | `-v ${PWD}/shell-scripts:/tmp` | Links shell scripts directory to the Docker container. This allows for running of the shell scripts from within the Docker container's CLI |
-| `mattrayner/lamp:latest-1604-php7` | Docker file to install. More distributions available on [Matt Rayner's GitHub repo](https://github.com/mattrayner/docker-lamp). |
+| `mattrayner/lamp:latest-1604-php7` | Docker file to install. More distributions available in [Matt Rayner's GitHub repo](https://github.com/mattrayner/docker-lamp). |
 
 ## Accessing the Linux CLI in the Docker Container
 
@@ -35,7 +35,7 @@ docker exec -it lamp "/bin/bash"
 
 ## Updating Config Files
 
-Run the `tmp/fix-docker-config.sh` from within the Linux CLI in the Docker container to tweak some of the config files within the Docker container.
+Run the `./tmp/fix-docker-config.sh` from within the Linux CLI in the Docker container to tweak some of the config files within the Docker container.
 
 ### What it does
 
@@ -47,4 +47,6 @@ Run the `tmp/fix-docker-config.sh` from within the Linux CLI in the Docker conta
 
 ## Common Errors
 
-- Sometimes when the system is shutdown or the Docker service is terminated a error about the container being unable to connect to the ports because there is already something on running on them occurs. This appears to be an issue with the service not cleaning up the ports on shutdown. The best way to solve this appears to be to restart the entire Docker service.
+### Ports already in use
+
+Sometimes when the system is shutdown or the Docker service is terminated a error about the container being unable to connect to the ports because there is already something on running on them occurs. This appears to be an issue with the service not cleaning up the ports on shutdown. The best way to solve this appears to be to restart the entire Docker service.
