@@ -35,7 +35,7 @@ docker exec -it lamp "/bin/bash"
 
 ## Updating Config Files
 
-Run the `./tmp/fix-docker-config.sh` from within the Linux CLI in the Docker container to tweak some of the config files within the Docker container.
+Run the `/tmp/fix-docker-config.sh` from within the Linux CLI in the Docker container to tweak some of the config files within the Docker container.
 
 ### What it does
 
