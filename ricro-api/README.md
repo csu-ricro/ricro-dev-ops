@@ -14,7 +14,6 @@ Once the script outputs that the apache2 and mysqld processes are running, hit `
 
 ```
 2018-11-02 19:48:47,695 INFO success: mysqld entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
-
 2018-11-02 19:48:47,695 INFO success: apache2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 ```
 
@@ -43,6 +42,8 @@ docker exec -it lamp "/bin/bash"
 ## Updating Config Files
 
 Run the `/tmp/fix-docker-config.sh` from within the Linux CLI in the Docker container to tweak some of the config files within the Docker container.
+
+**NOTE:** to automatically build the schema for the test database copy all data from `ricro-api` into the `${PWD}/api` directory.
 
 ### What it does
 
