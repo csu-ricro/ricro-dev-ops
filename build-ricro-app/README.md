@@ -1,3 +1,5 @@
+# :warning: NO LONGER USED :warning:
+
 # Building a RICRO App
 
 This script creates a basic app with the [`ricro-app-template`](https://github.com/dlennox24/ricro-app-template) to use as a starting point. It leverages `create-react-app` for a base app then customizes it based on the template.
