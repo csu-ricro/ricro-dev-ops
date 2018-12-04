@@ -46,7 +46,7 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 - [SEO Cheat Sheet](https://d2eeipcrcdle6.cloudfront.net/seo-cheat-sheet.pdf): Various tools and explanations of web base concepts related to Search Engine Optimization.
 - [Wes Bos](https://wesbos.com/courses/): Variety of free and paid web development courses
 
-## Suggest Course Path for a beginner
+## Suggested Course Path for a beginner
 
 1. Document, Document, DOCUMENT EVERYTHING
 1. [Learn HTML](https://www.codecademy.com/learn/learn-html)
