@@ -8,6 +8,7 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 - [Can I Use](https://caniuse.com/): List of support for various HTML and CSS properties across all browser versions
 - [CloudConvert](https://cloudconvert.com/): Convert any file format to another file format
 - [Compress or Die](https://compress-or-die.com/): Optimize images for web usage
+- [Favicon Generator](https://realfavicongenerator.net/): Generate favicons for all app all browsers, technologies, and plateforms
 - [GitHub](https://github.com/): Code hosting and version control
 - [HyperJS with Windows Unix Subsystem](https://gist.github.com/dlennox24/01903f5e622d0c849d6ec28e48a018d2): Configuring Hyper.js with zsh on Windows 10 Linux Subsystem for Node.js development
 - [ICO converter](https://www.icoconverter.com/): Converts PNG, JPG, GIF, BMP, etc. to `.ico` files
