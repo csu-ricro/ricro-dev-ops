@@ -13,6 +13,7 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 - [HyperJS with Windows Unix Subsystem](https://gist.github.com/dlennox24/01903f5e622d0c849d6ec28e48a018d2): Configuring Hyper.js with zsh on Windows 10 Linux Subsystem for Node.js development
 - [ICO converter](https://www.icoconverter.com/): Converts PNG, JPG, GIF, BMP, etc. to `.ico` files
 - [JavaScript Event Keycodes](http://keycode.info/): Character keycodes for keyboard button presses
+- [RealFaviconGenerator](https://realfavicongenerator.net/): The ultimate favicon generator. Design your icons platform per platform and make them look great, everywhere.
 - [Regex Tester](https://regex101.com/) Test regular expressions for validity and accuracy
 - [Web Code Tools](https://webcode.tools/open-graph-generator): Generate HTML meta tags for various objects (eg buisness, book, place, etc)
 
@@ -32,7 +33,7 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 
 ### Stock Images
 
-- [Unsplash](https://unsplash.com/): Royalty and copywrite free high quality stock images
+- [Unsplash](https://unsplash.com/): Royalty and copyright free high quality stock images
 - [Onepixel](https://www.onepixel.com/): Low cost stock photos. No subscription. No minimum. Just \$1 per photo.
 
 ## Training and Reference
