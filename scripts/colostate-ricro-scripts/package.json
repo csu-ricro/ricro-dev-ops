@@ -1,0 +1,31 @@
+{
+  "name": "colostate-ricro-scripts",
+  "version": "0.0.1",
+  "description": "Useful scripts of developing RICRO based apps",
+  "main": "index.js",
+  "author": "Daniel Lennox",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "uglify-js": "^3.4.9"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "shelljs": "^0.8.3"
+  },
+  "files": [
+    "/_utils",
+    "/create-cru-app"
+  ],
+  "bin": {
+    "create-cru-app": "./create-cru-app/cli.js"
+  }
+}
