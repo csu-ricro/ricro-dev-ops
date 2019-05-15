@@ -40,6 +40,7 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 
 - [Codecademy](https://www.codecademy.com/learn): "Online classroom" with various courses on many types of technology such as HTML/CSS, JavaScript, SQL, etc.
 - [DevDocs](https://devdocs.io/): DevDocs combines multiple API documentations in a fast, organized, and searchable interface. 
+- [egghead.io](https://egghead.io/): Learn the best JavaScript tools and frameworks from industry pros. Video tutorials for badass web developers.
 - [Front End Developer Handbook](https://frontendmasters.com/books/front-end-handbook/2019/): This is a guide that everyone can use to learn about the practice of front-end development. It broadly outlines and discusses the practice of front-end engineering: how to learn it and what tools are used when practicing it in 2019.
 - [Google Developers for Web](https://developers.google.com/web/): Best practices and other tools for fundamental and advanced web development.
 - [Git Docs](https://git-scm.com/docs): Documentation for Git.
