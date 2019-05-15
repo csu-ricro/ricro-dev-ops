@@ -39,14 +39,16 @@ Variety of scripts, procedures, and documentation used to create and maintain RI
 ## Training and Reference
 
 - [Codecademy](https://www.codecademy.com/learn): "Online classroom" with various courses on many types of technology such as HTML/CSS, JavaScript, SQL, etc.
-- [Front End Developer Handbook](https://frontendmasters.com/books/front-end-handbook/2018/): This is a guide that anyone could use to learn about the practice of front-end development. It broadly outlines and discusses the practice of front-end engineering: how to learn it and what tools are used when practicing it in 2018.
+- [DevDocs](https://devdocs.io/): DevDocs combines multiple API documentations in a fast, organized, and searchable interface. 
+- [Front End Developer Handbook](https://frontendmasters.com/books/front-end-handbook/2019/): This is a guide that everyone can use to learn about the practice of front-end development. It broadly outlines and discusses the practice of front-end engineering: how to learn it and what tools are used when practicing it in 2019.
 - [Google Developers for Web](https://developers.google.com/web/): Best practices and other tools for fundamental and advanced web development.
 - [Git Docs](https://git-scm.com/docs): Documentation for Git.
 - [Learn Git](http://try.github.io/): Resources to learn the version control Git.
 - [SVG on the Web](https://svgontheweb.com/): A Practical Guide to the usage of SVG in web environments.
+- [SEO Cheat Sheet](https://d2eeipcrcdle6.cloudfront.net/seo-cheat-sheet.pdf): Various tools and explanations of web-based concepts related to Search Engine Optimization.
+- [Testing JavaScript](https://testingjavascript.com/): Learn the smart, efficient way to test any JavaScript application.
 - [Web Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap): A set of charts demonstrating the paths that you can take and the technologies that you would want to adopt in order to become a frontend, backend or a devops.
-- [SEO Cheat Sheet](https://d2eeipcrcdle6.cloudfront.net/seo-cheat-sheet.pdf): Various tools and explanations of web base concepts related to Search Engine Optimization.
-- [Wes Bos](https://wesbos.com/courses/): Variety of free and paid web development courses
+- [Wes Bos](https://wesbos.com/courses/): Variety of free and paid web development courses.
 
 ## Suggested Course Path for a beginner
 
