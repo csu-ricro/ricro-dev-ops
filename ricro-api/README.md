@@ -7,7 +7,7 @@ Clone this section of the repo to ensure the file struture is correct.
 This image is from Matt Rayner's simple LAMP image: [mattrayner/docker-lamp](https://github.com/mattrayner/docker-lamp). Run the following command in PowerShell after the Docker service is running.
 
 ```powershell
-docker run --name lamp -p "80:80" -p "3306:3306" -v ${PWD}/api:/app -v ${PWD}/mysql:/var/lib/mysql -v ${PWD}/api/test/mysql/:/var/lib/mysql-files -v ${PWD}/shell-scripts:/tmp mattrayner/lamp:latest-1604-php7
+docker run --name lamp -p "80:80" -p "3306:3306" -p "22:22" -v ${PWD}/api:/app -v ${PWD}/mysql:/var/lib/mysql -v ${PWD}/api/test/mysql/:/var/lib/mysql-files -v ${PWD}/shell-scripts:/tmp mattrayner/lamp:latest-1604-php7
 ```
 
 Once the script outputs that the apache2 and mysqld processes are running, hit `ctrl`+`c` to gain the terminal back. The container is now up and running.
