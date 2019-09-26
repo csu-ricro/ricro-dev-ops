@@ -24,6 +24,10 @@
         * Note: `<webPathToApp>` must begin with a `/` and not have a trailing `/`
         * Example: `...ate.edu '~/deploy/scripts/codeship/deploy.py demo /dev/demo'`
     1. Select Create Deployment
+1. **Configure Build Triggers**
+    1. Select `Run builds for these branches only` under `Select behavior`
+    1. Enter `master` into the the text box
+    1. Select `On` for `Auto-supersede builds`
 1. **Setting up SSH access to the production server**
     1. Retrieve the SSH key from the general section in the Project's settings
     1. Add the whole key to the `~/.ssh/authorized_keys` file on the production server
